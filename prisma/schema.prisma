@@ -15,6 +15,7 @@ model User {
   createdAt    DateTime      @default(now())
   name         String
   email        String        @unique
+  passwordHash String
   clients      Client[]
   appointments Appointment[]
   transactions Transaction[]
