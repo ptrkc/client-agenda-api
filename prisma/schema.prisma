@@ -15,9 +15,6 @@ model User {
   createdAt    DateTime      @default(now())
   name         String
   email        String        @unique
-  phone        String?       @unique
-  notes        String?
-  customFields Json?
   clients      Client[]
   appointments Appointment[]
   transactions Transaction[]
