@@ -10,16 +10,18 @@ import {
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
+import { Public } from 'src/auth/public.decorator';
 
 @Controller('users')
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
+  // admin only
+  // @Get()
+  // findMany() {
+  //   return this.usersService.findMany();
+  // }
 
-  @Get()
-  findMany() {
-    return this.usersService.findMany();
-  }
-
+  @Public()
   @Post()
   create(@Body() data: CreateUserDto) {
     return this.usersService.create(data);
